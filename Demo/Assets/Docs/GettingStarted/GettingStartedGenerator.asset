@@ -68,7 +68,7 @@ MonoBehaviour:
       fullName: CrashKonijn.Docs.GettingStarted.Sensors.IdleTargetSensor, com.crashkonijn.docs.getting_started,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       <Path>k__BackingField: Assets/Docs/GettingStarted/Sensors/IdleTargetSensor.cs
-      <Id>k__BackingField: 
+      <Id>k__BackingField: IdleTargetSensor-c34e9575-d171-4044-9b83-a91a1c32e214
     targetKeys:
     - <Name>k__BackingField: ClosestPear
       fullName: CrashKonijn.Docs.GettingStarted.ClosestPear, com.crashkonijn.docs.getting_started,
@@ -85,4 +85,4 @@ MonoBehaviour:
       fullName: CrashKonijn.Docs.GettingStarted.Sensors.PearSensor, com.crashkonijn.docs.getting_started,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       <Path>k__BackingField: Assets/Docs/GettingStarted/Sensors/PearSensor.cs
-      <Id>k__BackingField: 
+      <Id>k__BackingField: PearSensor-d68c875d-29c0-43f3-9d79-054d4cc6505d

@@ -29,10 +29,8 @@ namespace CrashKonijn.Goap.Demos.Simple.Goap.Actions
 
             if (data.Progress < 10)
                 return ActionRunState.Continue;
-            
-            var apple = data.Tree.DropApple();
-            
-            data.Inventory.Put(apple);
+
+            data.Inventory.Put(data.Tree.CreateAppleNutrition());
             
             return ActionRunState.Completed;
         }

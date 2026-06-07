@@ -48,7 +48,7 @@ namespace CrashKonijn.Goap.Demos.Simple.Behaviours
                 this.fpsTimer -= 1;
             }
             
-            this.fpsText.text = $"FPS: {this.fps}\nResolve count: {this.goap.RunCount}\nRunTime: {this.goap.RunTime} (ms)\nCompleteTime: {this.goap.CompleteTime} (ms)";
+            this.fpsText.text = $"FPS: {this.fps}";
         }
 
         private void FixedUpdate()

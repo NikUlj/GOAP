@@ -5,13 +5,12 @@ namespace CrashKonijn.Goap.Demos.Simple.Behaviours
     public class TreeBehaviour : MonoBehaviour
     {
         public GameObject applePrefab;
+        public float minAppleNutrition = 80f;
+        public float maxAppleNutrition = 150f;
 
-        public AppleBehaviour DropApple()
+        public float CreateAppleNutrition()
         {
-            var random = Random.insideUnitCircle * 3f;
-            var position = new Vector3(random.x, 0f, random.y);
-
-            return Instantiate(this.applePrefab, this.transform.position + position, Quaternion.identity).GetComponent<AppleBehaviour>();
+            return Random.Range(this.minAppleNutrition, this.maxAppleNutrition);
         }
     }
 }

@@ -34,6 +34,7 @@ MonoBehaviour:
       rid: 4217533508436099072
     baseCost: 1
     stoppingDistance: 0.1
+    validateTarget: 1
     requiresTarget: 1
     validateConditions: 1
     moveMode: 0
@@ -47,7 +48,7 @@ MonoBehaviour:
   targetSensors:
   - sensor:
       <Name>k__BackingField: IdleTargetSensor
-      <Id>k__BackingField: 
+      <Id>k__BackingField: IdleTargetSensor-c34e9575-d171-4044-9b83-a91a1c32e214
     targetKey:
       <Name>k__BackingField: IdleTarget
       <Id>k__BackingField: IdleTarget-28399af6-ad14-4084-ba49-968fa8941e51
@@ -59,3 +60,4 @@ MonoBehaviour:
     RefIds:
     - rid: 4217533508436099072
       type: {class: EmptyActionProperties, ns: CrashKonijn.Agent.Runtime, asm: CrashKonijn.Agent.Runtime}
+      data: 

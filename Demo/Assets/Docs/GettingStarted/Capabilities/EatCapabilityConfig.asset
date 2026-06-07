@@ -34,6 +34,7 @@ MonoBehaviour:
       rid: 4217533508436099074
     baseCost: 1
     stoppingDistance: 0.1
+    validateTarget: 1
     requiresTarget: 0
     validateConditions: 1
     moveMode: 0
@@ -58,3 +59,4 @@ MonoBehaviour:
     RefIds:
     - rid: 4217533508436099074
       type: {class: EmptyActionProperties, ns: CrashKonijn.Agent.Runtime, asm: CrashKonijn.Agent.Runtime}
+      data: 

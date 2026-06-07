@@ -1,6 +1,7 @@
 ﻿using CrashKonijn.Agent.Core;
 using CrashKonijn.Agent.Runtime;
 using CrashKonijn.Goap.Demos.Simple.Behaviours;
+using CrashKonijn.Goap.Demos.Simple.Behaviours.Benchmark;
 using CrashKonijn.Goap.Runtime;
 using UnityEngine;
 
@@ -15,12 +16,14 @@ namespace CrashKonijn.Goap.Demos.Simple.Goap.Actions
 
         public override void Start(IMonoAgent agent, Data data)
         {
-            data.Apple =  data.Inventory.Hold();
         }
         
         public override bool IsValid(IActionReceiver agent, Data data)
         {
-            if (data.Apple == null)
+            if (data.Inventory == null)
+                return false;
+
+            if (data.Inventory.HeldAppleNutrition <= 0f)
                 return false;
             
             if (data.SimpleHunger == null)
@@ -31,19 +34,23 @@ namespace CrashKonijn.Goap.Demos.Simple.Goap.Actions
 
         public override IActionRunState Perform(IMonoAgent agent, Data data, IActionContext context)
         {
-            if (data.Apple == null)
-                return ActionRunState.StopAndLog("Apple is null.");
+            if (data.Inventory == null)
+                return ActionRunState.StopAndLog("Inventory is null.");
             
             if (data.SimpleHunger == null)
                 return ActionRunState.StopAndLog("SimpleHunger is null.");
 
+            if (data.Inventory.HeldAppleNutrition <= 0f)
+                return ActionRunState.StopAndLog("No apple in inventory.");
+
             var eatNutrition = context.DeltaTime * 20f;
 
-            data.Apple.nutritionValue -= eatNutrition;
+            data.Inventory.SetHeldAppleNutrition(data.Inventory.HeldAppleNutrition - eatNutrition);
             data.SimpleHunger.hunger -= eatNutrition;
 
-            if (data.Apple.nutritionValue <= 0)
+            if (data.Inventory.HeldAppleNutrition <= 0f)
             {
+                data.Consumed = true;
                 return ActionRunState.Completed;
             }
             
@@ -59,26 +66,20 @@ namespace CrashKonijn.Goap.Demos.Simple.Goap.Actions
         {
             this.Finish(agent, data);
         }
-
+        
         private void Finish(IMonoAgent agent, Data data)
         {
-            if (data.Apple == null)
-                return;
-            
-            if (data.Apple.nutritionValue <= 0)
+            if (data.Consumed)
             {
-                data.Inventory.Drop(data.Apple);
-                Object.Destroy(data.Apple.gameObject);
-                return;
+                data.Inventory.Clear();
+                SimpleBenchmarkRuntimeStats.RecordAppleEaten();
             }
-            
-            data.Inventory.Put(data.Apple);
         }
 
         public class Data : IActionData
         {
             public ITarget Target { get; set; }
-            public AppleBehaviour Apple { get; set; }
+            public bool Consumed { get; set; }
             
             [GetComponent]
             public SimpleHungerBehaviour SimpleHunger { get; set; }

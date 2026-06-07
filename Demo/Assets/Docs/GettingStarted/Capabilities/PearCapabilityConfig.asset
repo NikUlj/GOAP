@@ -34,6 +34,7 @@ MonoBehaviour:
       rid: 4217533508436099073
     baseCost: 1
     stoppingDistance: 0.1
+    validateTarget: 1
     requiresTarget: 1
     validateConditions: 1
     moveMode: 0
@@ -48,7 +49,7 @@ MonoBehaviour:
   multiSensors:
   - sensor:
       <Name>k__BackingField: PearSensor
-      <Id>k__BackingField: 
+      <Id>k__BackingField: PearSensor-d68c875d-29c0-43f3-9d79-054d4cc6505d
   generatorScriptable: {fileID: 11400000, guid: 88ea9e1341906b64f96efb539becac2a,
     type: 2}
   references:
@@ -56,3 +57,4 @@ MonoBehaviour:
     RefIds:
     - rid: 4217533508436099073
       type: {class: EmptyActionProperties, ns: CrashKonijn.Agent.Runtime, asm: CrashKonijn.Agent.Runtime}
+      data: 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace CrashKonijn.Goap.Demos.Simple.Behaviours
@@ -25,7 +24,7 @@ namespace CrashKonijn.Goap.Demos.Simple.Behaviours
 
         public bool Any()
         {
-            return this.apples.Any();
+            return this.apples.Count > 0;
         }
     }
 }

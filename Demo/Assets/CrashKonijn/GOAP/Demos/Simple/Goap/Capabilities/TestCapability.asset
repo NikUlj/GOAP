@@ -17,7 +17,8 @@ MonoBehaviour:
   worldSensors: []
   targetSensors: []
   multiSensors: []
-  generatorScriptable: {fileID: 0}
+  generatorScriptable: {fileID: 11400000, guid: 5fccbb575a6ba23419aa4a61a7268fc2,
+    type: 2}
   references:
     version: 2
     RefIds: []

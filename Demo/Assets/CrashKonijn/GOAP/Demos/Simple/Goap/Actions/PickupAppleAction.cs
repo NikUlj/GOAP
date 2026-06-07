@@ -55,8 +55,10 @@ namespace CrashKonijn.Goap.Demos.Simple.Goap.Actions
             
             if (transformTarget.Transform == null)
                 return ActionRunState.Stop;
-            
-            data.Inventory.Put(data.Apple);
+
+            data.Inventory.Put(data.Apple.nutritionValue);
+            data.Apple.PickUp();
+            Object.Destroy(data.Apple.gameObject);
             agent.Logger.Log($"Picked up apple: {data.Apple.name}");
 
             return ActionRunState.Completed;

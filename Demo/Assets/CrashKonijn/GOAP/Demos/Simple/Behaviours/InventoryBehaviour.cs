@@ -1,34 +1,27 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CrashKonijn.Goap.Demos.Simple.Behaviours
 {
     public class InventoryBehaviour : MonoBehaviour
     {
-        public List<AppleBehaviour> Apples = new ();
+        public float HeldAppleNutrition { get; private set; }
 
-        public void Put(AppleBehaviour apple)
+        public void Put(float nutrition)
         {
-            if (this.Apples.Contains(apple))
+            if (nutrition <= 0f)
                 return;
-            
-            apple.PickUp();
-            this.Apples.Add(apple);
+
+            this.HeldAppleNutrition = nutrition;
         }
 
-        public AppleBehaviour Hold()
+        public void SetHeldAppleNutrition(float nutrition)
         {
-            return this.Apples.FirstOrDefault();
+            this.HeldAppleNutrition = Mathf.Max(0f, nutrition);
         }
 
-        public void Drop(AppleBehaviour apple)
+        public void Clear()
         {
-            if (!this.Apples.Contains(apple))
-                return;
-            
-            this.Apples.Remove(apple);
-            apple.Drop();
+            this.HeldAppleNutrition = 0f;
         }
     }
 }

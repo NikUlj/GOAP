@@ -4,6 +4,8 @@ namespace CrashKonijn.Goap.Demos.Simple.Behaviours
 {
     public class AppleBehaviour : MonoBehaviour
     {
+        private static AppleCollection sharedAppleCollection;
+
         public float nutritionValue = 50f;
         public bool IsPickedUp { get; private set; }
         private AppleCollection appleCollection;
@@ -11,7 +13,10 @@ namespace CrashKonijn.Goap.Demos.Simple.Behaviours
         private void Awake()
         {
             this.nutritionValue = Random.Range(80f, 150f);
-            this.appleCollection = Compatibility.FindObjectOfType<AppleCollection>();
+            if (sharedAppleCollection == null)
+                sharedAppleCollection = Compatibility.FindObjectOfType<AppleCollection>();
+
+            this.appleCollection = sharedAppleCollection;
         }
 
         private void OnEnable()
